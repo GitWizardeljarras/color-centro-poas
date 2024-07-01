@@ -1,0 +1,560 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: hwb(0 100% 0% / 0.974);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+
+
+
+
+
+/*navegation*/
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-main {
+    background-color: #ffffff; /* Color de fondo del menú */
+    font-size: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 180px;
+    padding: 0 20px;
+    position: relative;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo del menú */
+    margin-bottom: 0px;
+    
+}
+
+.nav-main .nav-logo {
+    width: 310px; /* Tamaño del logo */
+    margin-right: 10px;
+    margin-top: 10px; /* Ajuste del margen superior */
+    margin-bottom: 10px;
+}
+.nav-menu-right{
+    list-style: none; 
+
+}
+.nav-main .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-main .nav-menu li {
+    margin-right: 80px; /* Espacio entre elementos del menú */
+
+}
+
+.nav-main .nav-menu li:last-child {
+    margin-right: 0; /* Eliminar el margen derecho del último elemento del menú */
+}
+
+.nav-main .nav-menu a {
+    text-decoration: none;
+    color: #333333; /* Color de texto del menú */
+    transition: color 0.3s ease; /* Transición suave del color del texto */
+   
+   
+}
+
+.nav-main .nav-menu a:hover {
+    color: #0e5edf; /* Color del texto al pasar el ratón sobre el enlace */
+}
+
+
+.nav-main .checkbtn {
+    font-size: 45px;
+    color: #000000;
+    float: left;
+    line-height: 80px;
+    cursor: pointer;
+    display: none;
+   
+}
+#check{
+    display: none;
+}
+
+
+
+
+
+
+
+.horario-panel {
+    display: none;
+    position: absolute;
+    background-color: #000000c9; 
+    height: 400px;
+    width: 300px; 
+    padding: 10px;
+    z-index: 1; 
+    padding-left: 75px;
+    font-size: 16px; 
+    right: 0%; 
+   
+}
+
+.horario-panel.visible {
+    display: block;
+}
+
+.horario-panel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.horario-panel ul li {
+    display: inline-block; 
+    margin-top: 10px;
+    margin-bottom: 30px; 
+    width: 100px; 
+}
+
+
+.horario-panel ul li {
+    display: block; 
+    margin-top: 10px; 
+    margin-bottom: 30px;
+    white-space: nowrap; 
+    text-align: center;
+}
+.horario-panel ul li:nth-last-child(2) {
+   padding-left: 25px; 
+}
+
+.horario-panel ul li:last-child {
+    padding-left: 25px; 
+}
+
+
+
+
+
+
+
+
+
+/* Estilos para dispositivos de pantalla pequeña */
+@media (max-width: 990px) {
+
+
+    .nav-main .checkbtn {
+        display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+        font-size: 36px;
+        
+    }
+    .nav-menu-right{
+        font-size: 30px;
+    
+    }
+    .nav-main {
+        height: 120px;
+    }
+
+
+    .nav-main .nav-logo {
+        width: 198px; /* Tamaño del logo */
+        margin-left: 5px;
+        margin-top: 10px; /* Ajuste del margen superior */
+        margin-bottom: 10px;
+    }
+   
+
+    .nav-main .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #eee;
+        border-top: 20px solid rgba(0, 0, 0, .1);
+        display: flex;
+        flex-direction: column; /* Mostrar los elementos en una columna */
+        align-items: center; /* Centrar horizontalmente los elementos */
+        z-index: 9999;
+        display: none; /* Ocultar el menú por defecto */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+        opacity: 0; /* Inicialmente invisible */
+        transform: translateY(-20px);
+    }
+
+    
+        .nav-main .nav-menu li {
+            margin: 20px 0; /* Ajustar el margen vertical */
+            width: 100%; /* Ajustar el ancho al 100% del contenedor */
+        }
+    
+        .nav-main .nav-menu a {
+            padding: 20px;
+            background: #fff;
+            border: .1rem solid rgba(0, 0, 0, .1);
+            display: block;
+            width: 100%; /* Ajustar el ancho al 100% del contenedor */
+            text-align: center;
+        }
+
+        .nav-main #check:checked ~ .nav-menu {
+            display: block; /* Mostrar el menú cuando el checkbox está marcado */
+            opacity: 1; /* Hacer visible */
+            transform: translateY(0); /* Sin desplazamiento */
+        }
+
+
+
+
+       
+
+
+        
+    .horario-toggle {
+        /* Estilo para el enlace "Horarios" */
+        cursor: pointer;
+    }
+
+    .horario-panel {
+        /* Estilo para el panel de horarios en pantallas pequeñas */
+        display: none;
+        position: absolute;
+        background-color: #000000c9;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        right: 0;
+    }
+
+    .horario-toggle:checked + .horario-panel {
+        /* Cuando el checkbox está marcado, muestra el panel de horarios */
+        display: block;
+    }
+
+}
+
+
+
+
+/* Slideshow */
+.mySlides {
+    display: none;
+}
+
+.slideshow-container {
+    max-width: 1800px;
+    margin: 120px auto 0;
+    margin-top: 1px;
+}
+
+.mySlides img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), /*arriba*/
+                0px -10px 20px rgba(0, 0, 0, 0.3); /*abajo*/
+}
+
+/*FLECHAS*/
+.prev, .next {
+    position:  absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    z-index: 1; /* Asegura  */
+    cursor: pointer;
+    color: #eeeeee;
+    font-size: 70px;
+    font-weight: 0px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 990px) {
+    .prev, .next {
+        top: 29%;
+        transform: translateY(-50%);
+        font-size: 40px; /* Cambiar el tamaño de la fuente */
+    }
+  
+}
+
+
+
+
+
+
+/*INFO*/
+
+.head .row .heading {
+    text-align: center;
+    font-size: 3rem;
+    font-style: sans-serif;
+    color: #414141ac;
+    padding: 2rem;
+    margin: 70px;
+    margin-top: 90px;
+    background:#F8F9F9;
+}
+
+.head .row .video-contenedor {
+    flex: 1 1 40rem;
+    position: relative;
+    width: 90%;
+    right: 200px;
+    top: 20px;
+}
+
+.head .contenido p {
+    font-size: 26px;
+    color: #000000;
+    text-align: justify;
+    word-wrap: break-word;
+    line-height: 1.5; /* Ajusta el espaciado entre líneas */
+    margin-bottom: 20px; /* Ajusta el espaciado entre párrafos */
+    padding: 20px;
+}
+
+.head .contenido {
+    margin-top: -430px; /*  margen superior del texto */
+    margin-left: 800px; /* margen izquierdo del texto */
+}
+
+.head .row .video-contenedor video {
+    max-width: 100%;
+    height: auto;
+    border: 1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem #3535352a;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 990px) {
+    .head .row .heading {
+        font-size: 2rem; /* Reducir el tamaño */
+        margin: 30px; /* Reducir el margen  */
+        margin-top: 20px; /* Reducir el margen superior*/
+        padding: 1rem; /* Reducir el relleno del encabezado */
+    }
+
+    .head .row .video-contenedor {
+        flex: 1 1 auto; /* Dejar que el contenedor de video se ajuste automáticamente */
+        width: 100%; /* Ajustar el ancho al 100% del contenedor padre */
+        right: 0; /* desplazamiento hacia la derecha */
+        top: 0; /* elimi desplazamiento hacia abajo */
+        margin-top: 20px; /* Ajustar el margen superior del contenedor de video */
+    }
+
+    .head .contenido {
+        margin-top: 0; 
+        margin-left: 0; 
+    }
+
+    .head .contenido p {
+        font-size: 20px; 
+        padding: 20px; 
+    }
+
+    .head .row .video-contenedor video {
+        border-width: 1rem; /* Ajustar el ancho del borde del video */
+        box-shadow: 0 .2rem .4rem #3535352a; /* Reducir la intensidad de la sombra */
+    }
+}
+
+
+
+
+
+
+/* CARTAS DE PROVEEDORES */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 90px; /* Ajuste el margen superior e inferior para dejar espacio con el slideshow */
+}
+
+.card {
+    flex: 0 1 calc(33.33% - 100px);
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: roboto;
+    text-align: center;
+    height: 440px;
+    display: flex; 
+    flex-direction: column; 
+    margin-top: 100px;
+}
+
+.card-image {
+    width: 100%;
+    height: calc(100% - 60px); 
+    border-radius: 10px 10px 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.card-text {
+    padding: 20px;
+    flex-grow: 1; /* Añadido */
+}
+
+.card-stats {
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.btn-ver-mas {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-ver-mas:hover {
+    background-color: #0056b3;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 990px) {
+    .card-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        margin-left:46px;
+        margin-right: 40px;
+    
+    }
+    
+    .card {
+        flex: 0 0 auto;
+        width: 310px; /* Tamaño de la tarjeta */
+        margin-right: 30px; /* Espacio entre tarjetas */
+        scroll-snap-align: start;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    
+    .card-image {
+        width: 200%;
+        height: calc(100% - 60px);
+        border-radius: 20px 20px 0 0;
+        background-size: contain; 
+        background-repeat: no-repeat;
+        background-position: 600% 10%; 
+    }
+    
+    .card-text {
+        padding: 20px;
+    }
+    
+    .card-stats {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .btn-ver-mas {
+        display: block;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .btn-ver-mas:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+    .slider-arrows {
+        position: relative;
+        margin-top: 40px;
+    }
+    
+    .prev-arrow,
+    .next-arrow {
+        position: absolute;
+        top: -335px; /* Cambiamos esto de 100% a 0 */
+        transform: translateY(-50%);
+        width: 70px;
+        height: 70px;
+        background-color: rgb(252, 248, 248);
+        color: #3d3b3bd4;
+        font-size: 50px;
+        text-align: center;
+        line-height:70px;
+        cursor: pointer;
+        border-radius: 50%; 
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.362);
+    }
+    
+    .prev-arrow {
+        left: 10px;
+    }
+    
+    .next-arrow {
+        right: 10px;
+    }
+    
+    
+      
+}
+
+
+
+
+
+
+
+
+
+/*footer*/
+footer {
+    background-color: #414141;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
